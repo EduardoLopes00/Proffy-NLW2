@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt_br"> <!--Lang é um atributo da tag HTML. Este atributo em especifico define a linguagem principal da página-->
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--ViewPort permite a auto adaptação dos componentes do doc em diferentes tamanho de tela-->
+    <meta name="theme-color" content="#8257E5">
+
+    <title>Proffy | Sua plataforma de estudos online</title>
+
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
+
+    <link rel="stylesheet" href="/style/main.css"> <!--Tag que fará o "Uses" no meu arquivo CSS-->
+    <link rel="stylesheet" href="/style/partials/page-landing.css"> <!--Tag que fará o "Uses" no meu arquivo CSS-->
+    <!--<Style>
+        /*
+            CSS = Cascading StyleSheet
+        */
+/*         
+        h1 { /*Especificando uma única tag para estilizar*/
+ /*           color: red;}  
+
+
+        #page-landing{ /*Para chamar ID's, usa-se a #*/
+       /*     color : red; /*Essa cor será aplicada em tudo que está dentro da tag body*/
+       /* } */
+        
+       /* .red { /*Sempre colocar um '.' antes do nome da classe*/
+       /*     color : red; /*É possível criar classes de estilização, que serão chamadas 
+                          nos atributos que deseja-se a obtenção da característica descrita entre as chaves*/
+      /*  }     */              
+        </Style>-->
+
+  <!-- Abaixo está um link que me da acesso à algumas fontes, como se fosse um "uses" -->    
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+
+</head>
+<body id = "page-landing"> <!--Definindo um ID para o meu body-->
+  
+    <div id = "container">
+        <div class="logo-container">
+            <img src="/images/logo.svg" alt="Proffy">
+
+            <h2>Sua plataforma de estudos online</h2>
+        </div>
+        
+        <img class = "hero-image" src="/images/landing.svg" alt="">
+
+        
+        <div class= "buttons-container"> <!-- Os links serão os botões -->
+
+
+            <a class = "study" href="/study">
+                <img src="/images/icons/study.svg" alt="Estudar">
+                Estudar
+            </a>
+
+            <a class = "give-classes" href="/give-classes">
+                <img src="/images/icons/give-classes.svg" alt="Dar aulas">
+                Dar aulas
+            </a>
+                        
+        </div>
+        
+        <p class="total-connections">
+            Total de 200 conexões já realizadas
+            <img src="/images/icons/purple-heart.svg" alt="coração roxo">                
+
+        </p>
+    </div>
+    
+</body>
+</html>

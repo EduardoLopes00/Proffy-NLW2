@@ -1,0 +1,64 @@
+:root {
+    --color-background: #F0F0F7;
+    --color-primary-lighter: #9871F5;
+    --color-primary-light: #916BEA;
+    --color-primary: #8257E5;
+    --color-primary-dark: #774DD6;
+    --color-primary-darker: #6842c2;
+    --color-secondary: #04D361;
+    --color-secondary-dark: #04BF58;
+    --color-title-in-primary: #FFFFFF;
+    --color-text-in-primary: #D4C2FF;
+    --color-text-title: #32264D;
+    --color-text-complement: #9C98A6;
+    --color-text-base: #6A6180;
+    --color-line-in-white: #E6E6F0;
+    --color-input-background: #F8F8FC;
+    --color-button-text: #FFFFFF;
+    --color-box-base: #FFFFFF;
+    --color-box-footer: #FAFAFC;
+    --color-small-info: #C1BCCC;
+    font-size: 60%; /* controle das medidas rem */
+}
+
+
+* {
+    margin: 0;
+    padding: 0; /* Aqui todos os preenchimentos (Fora os especificados) são retirados*/
+    box-sizing: border-box;
+
+}
+
+html,
+body{
+    height: 100vh; /* Especificando a altura de duas tags especificas*/
+}
+
+body {
+    background: var(--color-background); /*Chamar a variável*/
+    display: flex;
+    align-items: center; /*Trago todos os itens para o centro no sentido vertical*/
+    justify-content: center; /*Trago todos os itens para o centro no sentido horizontal*/
+}
+
+body,
+input,
+button,
+textarea{
+    font: 500 1.6 Poppins; /*Isso é uma abreviação do que está abaixo. Cada valor na horizontal representa um valor abaixo na vertical, respectivamente*/         
+    /*font-weight: 500; /* Peso da fonte */
+    /*font-family: Poppins; /*Nome da fonte*/
+    /*font-size: 1.6rem; /*Medida de fonte que indica quantas vezes o font-size padrão será a medida da fonte solicitada*/
+    color: var(--color-text-base);
+}
+
+#container {
+    width: 90vw; /* largura */ 
+    max-width: 700px; /* Largura máxima */    
+}
+
+@media (min-width: 700px){
+    :root{
+        font-size: 62.5%; /* Todas as fontes com tamanho definido em REM terão sua aparência alterada */
+    }
+}

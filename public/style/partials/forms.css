@@ -1,0 +1,47 @@
+/* Recolocando códigos que envolvem formulários  */   
+.select-block label,
+.input-block label {
+    font-size: 1.4rem;
+    color: var(--color-text-complement)
+}
+
+
+.input-block input,
+.select-block select,
+.textarea-block textarea{
+    width: 100%;
+    height: 5.6rem;
+    margin-top: 0.8rem;
+    border-radius: 0.8rem;
+    background: var(--color-input-background);
+    border: 1px solid var(--color-line-in-white);
+    outline: 0; /* Retirar o preencimento externo de quando se clica no campo */
+    padding: 0 1.6rem; /* preenchimento interno da caixa */
+    font: 1.6rem Archivo;
+}
+
+.textarea-block textarea{
+    padding: 1.2rem 1.6rem;
+    height: 16rem;
+
+    resize: vertical; /* Bloqueia mexer no tamanho da caixa de texto sem ser na vertical */
+}
+
+.input-block,
+.textarea-block {
+    position: relative;
+}
+
+.input-block:focus-within::after,
+.textarea-block:focus-within::after { /* Evento que indica quando o elemento está em foco, ou seja, algum valor de dentro do campo está selecionado */
+    content: "";
+
+    width: calc(100% - 3.2rem); /* Fazendo um cálculo de largura, que pegfará 100% - 3.2rem */
+    height: 2px;
+    background: var(--color-primary-light);
+
+    position: absolute; /* Indica que ele é absoluto na página, como se fosse uma colagem em cima da página. ou seja, estou trazendo pra frente */
+    left: 1.6rem;
+    right: 1.6rem;
+    bottom: 0;
+}

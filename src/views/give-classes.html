@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt_br"> <!--Lang é um atributo da tag HTML. Este atributo em especifico define a linguagem principal da página-->
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--ViewPort permite a auto adaptação dos componentes do doc em diferentes tamanho de tela-->
+    <title>Proffy | Sua plataforma de estudos online</title>
+
+    <link rel="stylesheet" href="/style/main.css"> <!--Tag que fará o "Uses" no meu arquivo CSS-->
+    <link rel="stylesheet" href="/style/partials/header.css"> <!--Tag que fará o "Uses" no meu arquivo CSS-->
+    <link rel="stylesheet" href="/style/partials/forms.css"> <!--Tag que fará o "Uses" no meu arquivo CSS-->
+    <link rel="stylesheet" href="/style/partials/page-give-classes.css"> <!--Tag que fará o "Uses" no meu arquivo CSS--> 
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+
+    <script src="/Script/addField.js" defer src=""> </script>
+
+</head>
+<body id = "page-give-classes"> <!--Definindo um ID para o meu body-->  
+    <div id = "container">
+      <header class="page-header">
+        <div class="top-bar-container">
+            <a href="/">
+                <img src="/images/icons/back.svg" alt="Voltar">
+            </a>
+            
+            <img src="images/logo.svg" alt="Proffy">           
+        </div>
+
+        <div class="header-content">
+            <strong>Que incrível que você quer dar aulas</strong>
+            <p>O primeiro passo, é preencher esse formulário de inscrição</p>
+                      
+        </div>
+
+      </header> 
+
+      <main> <!--Indica o conteúdo principal da página-->
+        <form action="" id="create-class" method = "POST"> <!--Por padrão é o GET-->
+          <fieldset> <!--GroupBox do HTML-->
+            <legend>Seus dados</legend>
+
+            <div class="input-block">
+                <label for="name">Nome completo</label>
+                <input name = "name" type="name" id = "name" required> <!--O "Required" sinaliza que o formulário não será enviado até que seja preenchido este campo-->
+            </div>
+
+            <div class="input-block">
+              <label for="avatar">Link da sua foto <small>(Comece com https://)</small></label>                
+              <input name = "avatar" type="avatar" id ="avatar" type="url" required> <!--Tipo URL te obriga a color um link, caso contrário o HTML te avisa que algo está errado-->
+            </div>
+
+            <div class="input-block">
+              <label for="whatsapp">Whatsapp <small>(Somente números)</small></label>                
+              <input name = "whatsapp" type="whatsapp" id ="whatsapp" type="number" required>
+            </div>
+
+            <div class="textarea-block">
+              <label for="bio">Biografia</label>
+              <textarea name="bio" id="bio" required></textarea>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Sobre a aula</legend>
+            <div class="select-block">
+                <label for="subject">Matéria</label>
+                <select name="subject" id="subject" required>
+                  <option value = "">Selecione uma opção</option>                
+                  {%for subject in subjects%}                  
+                    <option value="{{loop.index}}">{{subject}}</option> <!--O número 1 representa Artes-->
+                  {%endfor%}                                  
+                </select>
+            </div>
+
+            <div class="input-block">
+              <label for="cost">Custo da sua hora/aula 
+                <small>(R$)</small>
+              </label>
+              <input name = "cost" type="cost" id="cost" type="number" required>              
+
+            </div>
+          </fieldset>
+
+          <fieldset id="schedule-items">
+            <legend>Horários disponíveis
+              <button type="button" id = "add-time">+ Novo horário</button>
+            </legend>
+
+            <div class="schedule-item">
+              <div class="select-block">
+                <label for="weekday">Dia da semana</label>
+                <select name="weekday[]" required>
+                {%for weekday in weekdays%}
+                  <option value="{{loop.index0}}" {{"selected" if filters.weekday == loop.index0}}>{{weekday}}</option> <!--O número 1 representa Domingo-->
+                {%endfor%}
+
+                </select> <!--Os colchetes no name significa que a tag aceita mais de um valor-->
+              </div>
+
+              <div class="input-block">
+                <label for="time_from">Das</label>
+                <input type="time" name="time_from[]" required>
+              </div>
+
+              <div class="input-block">
+                <label for="time_to">Até</label>
+                <input type="time" name="time_to[]" required>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+
+        <footer>
+          <p>
+            <img src="images/icons/warning.svg" alt="Aviso importante">
+            Importante! <br>
+            Preencha todos os dados
+          </p>
+
+          <button type="submit" form="create-class">Salvar cadastro</button> <!--Input do tipo submit precisa estar dentro das tag's do formulário. Caso contrário, é necessário referenciar o formulário que vai ser enviado através de um ID-->
+
+        </footer>
+      </main> 
+    </div>
+    
+</body>
+</html>

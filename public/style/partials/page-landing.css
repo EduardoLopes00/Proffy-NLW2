@@ -1,0 +1,135 @@
+:root{
+    font-size: 40%;
+}
+
+#page-landing{
+    background: var(--color-primary);
+}
+
+#page-landing #container{ /* Hierarquia de tags */
+    color: var(--color-text-in-primary);
+}
+
+.logo-container img{ /* Chamando a classes, por isso o '.'*/
+    height: 10rem; 
+}
+
+.logo-container{
+    text-align: center; /* Todo o texto ou coisa que tenha relação com texto, como imagens com comentário, ficará alinhado ao meio */
+    margin-bottom: 3.2rem; /* Margem abaixo da logo */
+}
+
+.logo-container h2{
+    font-weight: 500;
+    font-size: 3.6rem; /* Tamanho da fonte */ 
+    line-height: 4.6rem; /* Define o tamanho da linha abaixo e acima do texto */ 
+    margin-top: 0.8rem; /* Define o espaçamento na parte de cima do texto */
+}
+
+
+.hero-image{
+    width: 100%; /* 100% da largura definida em sua tag mae, no caso a tag container, ou seja, 100% de 90vw */
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: center; /* O conteúdo só vai obedecer caso tiver o flex acima */
+    margin: 3.2rem 0; /* Define as margens de cima como 3,2 e as do lado como 0 */
+}
+
+.buttons-container a{
+    width: 30rem;
+    height: 10.4rem;
+
+    border-radius: .8rem; /* Arredondar as bordas, podendo definir um tamanho para cada ponta da borda */
+    margin-right: 1.6rem;
+
+    font: 700 2.4rem Archivo;
+
+    display: flex;
+    align-items: center; /* Alinha os arquivos ao meio verticalmente */
+    justify-content: center; /* Alinha os arquivos ao meio horizontalmente */
+    
+    text-decoration: none; /* Tira o traço de baixo, que vem por padrão do link */
+
+    transition: background .2s; /* Definindo que quando envolver alterção de background, demorará 0.2 segundos para que se concretize */
+        
+    color: var(--color-button-text);        
+}
+
+.buttons-container a.study{
+    background: var(--color-primary-lighter);
+}
+
+.buttons-container a.give-classes{
+    background: var(--color-secondary);
+    margin-right: 0;
+}
+
+.buttons-container img{ /* Todas as imagens dentro desta classe serão afet */
+    width: 4rem;
+    margin-right: 2.4rem;
+}
+
+.buttons-container a.study:hover{ /* Hover: Quando estiver com o mouse por cima, faz tal coisa */
+    background: var(--color-primary-light);
+}
+
+.buttons-container a.give-classes:hover{
+    background: var(--color-secondary-dark);
+}
+
+.total-connections{
+    font-size: 1.8rem;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.total-connections img{
+    margin-left: 0.8rem;
+}
+
+@media (min-width: 1100px) { /*(1100px = Desktop) Uma espécie de If para descobrir de que dispositivo esta sendo acessada a pagina. No acso, testamos a largura da imagem. */
+    #page-landing #container{
+        max-width: 1100px;
+        display: grid; /* Dividir a página em quadrados */
+        grid-template-columns: 2fr 1fr 2fr; /* Dividindo as colunas astravés de frações */
+        grid-template-rows: 350px 1fr; /* duas linhas, uma de 350px e o resto para a outra */
+        grid-template-areas: /* Nesta propriedade, eu imagino o meu grid e dou apelido para cada quadrado */
+        "proffy image image"
+        "button button texting" ;
+        column-gap: 60px; /* Espaço entre os quadrados do grid */
+    }
+
+    .logo-container{
+        grid-area: proffy; /*Posiciona o logo-container no grid, com base nos apelidos dados anteriormente */
+        text-align: initial; /* Coloca o alinhamento no começo do quadrado do grid */
+        align-self: center; /*Alinha seu próprio com o centro*/
+        margin: 0;
+    }
+
+    .logo-container img{
+        height: 127px;        
+
+    }
+
+    .hero-image{
+        grid-area: image;  /*Posiciona a hero-image no grid, com base nos apelidos dados anteriormente */
+        height: 350px;
+    }
+
+    .buttons-container{
+        grid-area: button /*Posiciona os botões no grid, com base nos apelidos dados anteriormente */;
+        justify-content: flex-start;
+        margin: 0;
+    }
+
+    .total-connections{
+        grid-area: texting; /*Posiciona o texto de conexão, com base nos apelidos dados anteriormente */
+        justify-self: end; /* Joga o conteúdo para o final do grid  */
+        font-size: 1.2rem;
+    }
+}
