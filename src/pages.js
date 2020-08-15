@@ -55,7 +55,7 @@ function pageGiveClasses(req, res) {
     return res.render("give-classes.html", { subjects, weekdays })     
 }
 
-async function saveClasses(req, res) {
+async function saveClasses(req, res) {    
     const createProffy = require('./database/createProffy')
     const data = req.body /* Contém as informações do submit feito pelo HTML */    
     
@@ -89,13 +89,19 @@ async function saveClasses(req, res) {
         return res.redirect("/study")
     } catch (error) {
         console.log(error)
-    }
-        
+    }        
+}
+
+function pageSuccess(req, res){
+    setTimeout(() => {
+        return saveClasses();
+    }, 2000);
 }
 
 module.exports = {
     pageLanding,
     pageStudy,
     pageGiveClasses,
-    saveClasses
+    saveClasses,
+    pageSuccess
 }
