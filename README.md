@@ -1,2 +1,3 @@
 # Proffy-NLW2
-A project about a online school that was made at Next Level Week 2 from RocketSeat
+This project is about an online school. You can give classes or be a student.
+It was made on the Next Level Week #2 by RocketSeat
